@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hrms.business.abstracts.JobtitleService;
-import kodlamaio.hrms.entities.concretes.JobTitles;
+import kodlamaio.hrms.entities.concretes.JobTitle;
 
 
 @RestController
@@ -27,8 +27,12 @@ public class JobTitlesController {
 
 	@GetMapping("/getall")
 	
-	public List<JobTitles> getAll(){
+	public List<JobTitle> getAll(){
 		
 		return this.jobTitleService.getAll();
 	}
+	
+
+	
+	
 }

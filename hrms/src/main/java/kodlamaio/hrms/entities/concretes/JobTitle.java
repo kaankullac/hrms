@@ -11,7 +11,7 @@ import lombok.Data;
 @Entity
 @Table(name="jobtitles")
 @Data
-public class JobTitles {
+public class JobTitle {
 		
 		@Id
 		@GeneratedValue

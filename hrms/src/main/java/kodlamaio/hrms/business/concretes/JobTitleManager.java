@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.JobtitleService;
 import kodlamaio.hrms.dataAccess.abstracts.JobTitleDao;
-import kodlamaio.hrms.entities.concretes.JobTitles;
+import kodlamaio.hrms.entities.concretes.JobTitle;
 
 
 @Service
@@ -23,7 +23,7 @@ public class JobTitleManager implements JobtitleService{
 	}
 
 	@Override
-	public List<JobTitles> getAll() {
+	public List<JobTitle> getAll() {
 		
 		return this.jobTitleDao.findAll();
 	}
