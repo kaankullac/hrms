@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.JobtitleService;
+import kodlamaio.hrms.core.utilities.results.ErrorResult;
+import kodlamaio.hrms.core.utilities.results.Result;
+import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.JobTitleDao;
 import kodlamaio.hrms.entities.concretes.JobTitle;
 
@@ -26,6 +29,15 @@ public class JobTitleManager implements JobtitleService{
 	public List<JobTitle> getAll() {
 		
 		return this.jobTitleDao.findAll();
+	}
+
+	@Override
+	public Result add(JobTitle jobTitle) {
+		if(jobTitleDao.existsByJobTitle(jobTitle.getJobTitle())) {
+			return new ErrorResult("Kullanılmış iş tanımı");
+		}
+		this.jobTitleDao.save(jobTitle);
+		return new SuccessResult("Pozisyon eklendi.");
 	}
 
 }
